@@ -2,10 +2,13 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import {TypeOrmModule} from "@nestjs/typeorm";
+import {UsuarioModule} from "./usuario/usuario.module";
+import {UsuarioEntity} from "./usuario/usuario.entity";
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
+      UsuarioModule,
+      TypeOrmModule.forRoot({
       name: 'default', //nombre de la conexion
       type: 'mysql',  // mysql
       host: 'localhost', //ip
@@ -14,7 +17,7 @@ import {TypeOrmModule} from "@nestjs/typeorm";
       password: 'root', //password
       database: 'reserveNow',  //Base de datos
       entities: [ //Todas las entidades que se va a conectar
-
+          UsuarioEntity
       ],
       synchronize: true, //actualiza el esquema de la base de datos
       dropSchema: false, //Elimina los datos y esquema de bases de datos
