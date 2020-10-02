@@ -1,0 +1,27 @@
+
+
+body{
+    font-family: Arial;
+    color: black;
+}
+
+td, th{
+    border: 1px solid #dddddd;
+}
+h1{
+    color: #0c5460;
+    text-align: center;
+}
+h2{
+    color: #721c24;
+}
+p{
+    font-family: Arial;
+    color: #0c5460;
+
+}
+label{
+    color: #0c5460;
+}
+
+
