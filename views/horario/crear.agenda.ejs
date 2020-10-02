@@ -1,0 +1,53 @@
+<!-- horario/crear.agenda.ejs-->
+<% const existeHorario = typeof horario != 'undefined'%>
+
+<% let existeHoraInicio = typeof hora_inicio !== 'undefined' %>
+<% let existeHoraFinal = typeof hora_final !== 'undefined' %>
+<% let existeDia= typeof dia !== 'undefined' %>
+
+
+
+<h1> <%= existeHorario ? 'Editar' : 'Crear'%> Horario</h1>
+
+<% if(typeof error !== 'undefined') { %>
+    <p>MENSAJE ERROR: <%= error %></p>
+<% } %>
+
+<!-- Setear los datos para editar-->
+<%if(existeHorario){%>
+
+    <% existeHoraInicio = true %>
+    <% existeHoraFinal = true %>
+    <% existeDia = true %>
+
+    <% hora_inicio = horario.hora_inicio %>
+    <% hora_final = horario.hora_final %>
+    <% dia = horario.dia %>
+
+<%}%>
+<h2> INGRESE LOS DATOS CORRESPONDIENTES</h2>
+
+<form action="<%= existeHorario ? '/horario/editarDesdeVista/' + horario.id : '/horario/crearDesdeVista' %>"
+      method="POST">
+
+    <label for="diaID">Dia:</label>
+    <input id="diaID" type="text" name="dia" value="<%= existeDia ? dia : '' %>">
+    <br>
+
+    <label for="hora_inicioID">Hora de Inicio:</label>
+    <input id="hora_inicioID" type="text" name="hora_inicio" value="<%= existeHoraInicio ? hora_inicio : '' %>">
+    <br>
+
+    <label for="hora_finalID">Hora de Finalizacion:</label>
+    <input id="hora_finalID" type="text" name="hora_final" value="<%= existeHoraFinal ? hora_final : '' %>">
+    <br>
+
+    <button type="submit">AGENDAR</button>
+    <button type="reset">RESET</button>
+
+    <a href="/logout">
+        <button>LOGOUT</button>
+    </a>
+
+
+</form>

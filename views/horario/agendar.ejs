@@ -1,0 +1,53 @@
+<h1> A G E N D A R </h1>
+<%if(typeof parametrosConsulta != 'undefined') {%>
+    <p>MENSAJE: <%= parametrosConsulta.mensaje%></p>
+<%}%>
+<h2> Presiona en consultar horarios, para observar  los horarios</h2>
+
+<form action="/horario/vista/agendar"
+      method="GET">
+    <label for="busqueda">Busqueda:</label>
+    <input id="busqueda" type="text" name="busqueda">
+    <button type="submit"> CONSULTAR HORARIOS</button>
+</form>
+<table>
+    <!--table row-->
+    <tr>
+        <!--table header-->
+        <th>Dia</th>
+        <th>Hora de Inicio</th>
+        <th>Hora de finalizacion</th>
+        <th>Acciones</th>
+    </tr>
+    <% arregloHorarios.forEach( (objeto)=>{ %>
+        <tr>
+            <td><%= objeto.dia %></td>
+            <td><%= objeto.hora_inicio %></td>
+            <td><%= objeto.hora_final %></td>
+            <td>
+                <a href="/horario/vista/editar/<%= objeto.id %>">
+                    <button>Editar Horario</button>
+                </a>
+
+                <form action="/horario/eliminarDesdeVista/<%= objeto.id %>"
+                      method="POST">
+
+                    <button type="submit">Eliminar Horario</button>
+                </form>
+            </td>
+        </tr>
+    <% } ) %>
+
+</table>
+<h2> Presiona en agendar cita para seleccionar un horario </h2>
+
+<a href="/horario/vista/crear">
+    <button>AGENDAR CITA</button>
+</a>
+<a href="/logout">
+    <button>Logout</button>
+</a>
+
+
+
+

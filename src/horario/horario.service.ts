@@ -1,0 +1,48 @@
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { FindManyOptions, Like, Repository } from 'typeorm';
+import { HorarioEntity } from './horario.entity';
+
+
+@Injectable()
+export class HorarioService {
+
+  constructor(
+    @InjectRepository(HorarioEntity)
+    private repositorio: Repository<HorarioEntity>
+  ) {
+  }
+
+  crearUno(nuevoUsuario: HorarioEntity) {
+    return this.repositorio.save(nuevoUsuario) // promesa
+  }
+
+  buscarTodos(textoDeConsulta?: string) {
+    const consulta: FindManyOptions<HorarioEntity> = {
+      where: [
+        {
+          id: Like(`%${textoDeConsulta}%`)
+        },
+        {
+          hora_inicio: Like(`%${textoDeConsulta}%`)
+        },
+        {
+          hora_final: Like(`%${textoDeConsulta}%`)
+        }
+      ]
+    }
+
+    return this.repositorio.find(consulta) // promesa
+  }
+  buscarUno(id: number) {
+    return this.repositorio.findOne(id) // promesa
+  }
+
+  editarUno(horarioEditado: HorarioEntity) {
+    return this.repositorio.save(horarioEditado);
+  }
+
+  eliminarUno(id: number) {
+    return this.repositorio.delete(id);
+  }
+}
