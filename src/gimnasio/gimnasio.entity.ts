@@ -1,4 +1,5 @@
-import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
+import { MembresiaEntity } from "src/membresia/membresia.entity";
+import {Column, Entity, Index, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 
 
 
@@ -17,7 +18,8 @@ export class GimnasioEntity{
         nullable: false
     })
     nombre?: string;
-
+    @OneToMany(type => MembresiaEntity, membresia => membresia.gimnasio) // note: we will create author property in the Photo class below
+    membresias: MembresiaEntity[];
     
 
     

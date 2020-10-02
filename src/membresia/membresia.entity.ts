@@ -1,3 +1,4 @@
+import { GimnasioEntity } from "src/gimnasio/gimnasio.entity";
 import { UsuarioEntity } from "src/usuario/usuario.entity";
 import {Column, Entity, Index, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 
@@ -34,6 +35,7 @@ export class MembresiaEntity{
     estado: boolean;
     @ManyToOne(type => UsuarioEntity, usuario => usuario.membresias)
     usuario: UsuarioEntity;
-
+    @ManyToOne(type => GimnasioEntity, gimnasio => gimnasio.membresias)
+    gimnasio: GimnasioEntity;
     
 }
