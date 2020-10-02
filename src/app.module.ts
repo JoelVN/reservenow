@@ -4,13 +4,32 @@ import { AppService } from './app.service';
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {UsuarioModule} from "./usuario/usuario.module";
 import {UsuarioEntity} from "./usuario/usuario.entity";
+import { LocalEntity } from './local/local.entity';
+import { MaquinaEntity } from './maquina/maquina.entity';
+import { MembresiaEntity } from './membresia/membresia.entity';
+import { MusculoEntity } from './musculo/musculo.entity';
+import { GimnasioModule } from './gimnasio/gimnasio.module';
+import { GimnasioEntity } from './gimnasio/gimnasio.entity';
+import { LocalModule } from './local/local.module';
+import { MaquinaModule } from './maquina/maquina.module';
+import { MembresiaModule } from './membresia/membresia.module';
+import { MusculoModule } from './musculo/musculo.module';
 import { HorarioModule } from './horario/horario.module';
 import { HorarioEntity } from './horario/horario.entity';
 
 @Module({
   imports: [
       UsuarioModule,
-      HorarioModule,
+      GimnasioModule,
+      LocalModule,
+      MaquinaModule,
+      MembresiaModule,
+      MusculoModule, 
+      HorarioModule,     
+
+
+      
+
       TypeOrmModule.forRoot({
       name: 'default', //nombre de la conexion
       type: 'mysql',  // mysql
@@ -21,7 +40,14 @@ import { HorarioEntity } from './horario/horario.entity';
       database: 'reservenow',  //Base de datos
       entities: [ //Todas las entidades que se va a conectar
           UsuarioEntity,
+          GimnasioEntity,
+          LocalEntity,
+          MaquinaEntity,
+          MembresiaEntity,
+          MusculoEntity,
           HorarioEntity
+
+
       ],
       synchronize: true, //actualiza el esquema de la base de datos
       dropSchema: true, //Elimina los datos y esquema de bases de datos
