@@ -1,5 +1,6 @@
+import { LocalEntity } from 'src/local/local.entity';
 import { UsuarioEntity } from 'src/usuario/usuario.entity';
-import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('horario')
 export class HorarioEntity{
@@ -33,5 +34,7 @@ export class HorarioEntity{
   dia?: string;
   @ManyToMany(type => UsuarioEntity, usuario => usuario.horariosEntity)
     usuariosEntity: UsuarioEntity[];
-
+    
+  @ManyToOne(type => LocalEntity, local => local.horarios)
+    local: LocalEntity;
 }

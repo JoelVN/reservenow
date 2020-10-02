@@ -1,4 +1,6 @@
-import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
+import { GimnasioEntity } from "src/gimnasio/gimnasio.entity";
+import { HorarioEntity } from "src/horario/horario.entity";
+import {Column, Entity, Index, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 
 
 
@@ -31,6 +33,10 @@ export class LocalEntity{
        
     })
     telefono_local: string;
-
-    
+     
+    @OneToMany(type => HorarioEntity, horario => horario.local) // note: we will create author property in the Photo class below
+    horarios: HorarioEntity[];
+    @ManyToOne(type => GimnasioEntity, gimnasio => gimnasio.locales)
+    gimnasio: GimnasioEntity;
+   
 }
