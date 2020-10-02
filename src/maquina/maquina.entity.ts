@@ -22,7 +22,7 @@ export class MaquinaEntity{
         type: 'string',
         nullable: false
     })
-    nombre?: Date;
+    nombre?: string;
 
     @Column({
         name:'segmento_cuerpo',
