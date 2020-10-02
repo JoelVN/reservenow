@@ -1,28 +1,28 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { MembresiaController } from "./membresia.controller";
-import { MembresiaEntity } from "./membresia.entity";
-import { MembresiaService } from "./membresia.service";
+import { GimnasioController } from "./gimnasio.controller";
+import { GimnasioEntity } from "./gimnasio.entity";
+import { GimnasioService } from "./gimnasio.service";
 
 @Module({
     controllers: [
-        MembresiaController
+        GimnasioController
 
     ],
     imports: [
         TypeOrmModule
             .forFeature(
                 [
-                    MembresiaEntity
+                    GimnasioEntity
                 ],
                 'default' //nombre cadena de conexion
             )
     ],
     providers:[
-        MembresiaService
+        GimnasioService
     ],
 })
 
-export class MembresiaModule {
+export class GimnasioModule {
 
 }
