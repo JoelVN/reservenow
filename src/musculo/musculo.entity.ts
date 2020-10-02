@@ -2,14 +2,14 @@ import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
 
 @Index([
     'id',
-    'direccion',
-    'aforo',
-    'telefono',
+    'nombre',
+    'segmento_cuerpo',
+    
 
 ])
 
-@Entity('local')
-export class LocalEntity{
+@Entity('musculo')
+export class MusculoEntity{
     @PrimaryGeneratedColumn({
         name: 'id', //numero de cedula del usuario + el mes en el q estamos 
         unsigned: true,
@@ -18,25 +18,20 @@ export class LocalEntity{
     id: number;
 
     @Column({
-        name:'direccion',
+        name:'nombre',
         type: 'string',
         nullable: false
     })
-    direccion?: string;
+    nombre?: string;
 
     @Column({
-        name:'aforo',
+        name:'segmento_cuerpo',
         type: 'number',
         nullable: false
     })
-    aforo?: string
+    segmento_cuerpo?: string
 
-    @Column({
-        name: 'telefono_local',
-        type: 'string',
-       
-    })
-    telefono_local: string;
+    
 
     
 }
