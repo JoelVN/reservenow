@@ -14,6 +14,4 @@ export class GimnasioUpdateDTO {
     @MaxLength(50)
     nombre: string
 
-
-
 }

@@ -2,12 +2,14 @@ import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
 
 @Index([
     'id',
-    'nombre',
+    'inicia',
+    'finaliza',
+    'estado',
 
 ])
 
-@Entity('membresia')
-export class GimnasioEntity{
+@Entity('local')
+export class LocalEntity{
     @PrimaryGeneratedColumn({
         name: 'id', //numero de cedula del usuario + el mes en el q estamos 
         unsigned: true,
@@ -16,13 +18,25 @@ export class GimnasioEntity{
     id: number;
 
     @Column({
-        name:'nombre',
+        name:'direccion',
         type: 'string',
         nullable: false
     })
-    nombre?: string;
+    direccion?: Date;
 
-    
+    @Column({
+        name:'aforo',
+        type: 'number',
+        nullable: false
+    })
+    aforo?: Date
+
+    @Column({
+        name: 'telefono_local',
+        type: 'string',
+       
+    })
+    telefono_local: boolean;
 
     
 }
