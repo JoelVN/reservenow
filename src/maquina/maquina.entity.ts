@@ -1,5 +1,6 @@
 import { LocalEntity } from "src/local/local.entity";
-import {Column, Entity, Index, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
+import { ServiciosEntity } from "src/servicios/servicios.entity";
+import {Column, Entity, Index, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 
 
 
@@ -28,6 +29,8 @@ export class MaquinaEntity{
 
     @ManyToOne(type => LocalEntity, local => local.maquinas)
     local: LocalEntity;
+    @OneToMany(type => ServiciosEntity, servicio => servicio.maquina) // note: we will create author property in the Photo class below
+    servicios: ServiciosEntity[];
    
 
     

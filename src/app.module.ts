@@ -16,6 +16,8 @@ import { MembresiaModule } from './membresia/membresia.module';
 import { MusculoModule } from './musculo/musculo.module';
 import { HorarioModule } from './horario/horario.module';
 import { HorarioEntity } from './horario/horario.entity';
+import { ServiciosEntity } from './servicios/servicios.entity';
+import { ServiciosModule } from './servicios/servicios.module';
 
 @Module({
   imports: [
@@ -25,7 +27,8 @@ import { HorarioEntity } from './horario/horario.entity';
       MaquinaModule,
       MembresiaModule,
       MusculoModule, 
-      HorarioModule,     
+      HorarioModule, 
+      ServiciosModule ,   
 
 
       
@@ -45,7 +48,8 @@ import { HorarioEntity } from './horario/horario.entity';
           MaquinaEntity,
           MembresiaEntity,
           MusculoEntity,
-          HorarioEntity
+          HorarioEntity,
+          ServiciosEntity
 
 
       ],

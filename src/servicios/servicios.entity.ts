@@ -1,5 +1,6 @@
 import { HorarioEntity } from "src/horario/horario.entity";
-import {Column, Entity, Index, ManyToMany, PrimaryGeneratedColumn} from "typeorm";
+import { MaquinaEntity } from "src/maquina/maquina.entity";
+import {Column, Entity, Index, ManyToMany, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 
 
 
@@ -32,7 +33,8 @@ export class ServiciosEntity{
     })
     nombreEntrenador?: string
 
-
+    @ManyToOne(type => MaquinaEntity, maquina => maquina.servicios)
+    maquina: MaquinaEntity;
     
     
 

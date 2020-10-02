@@ -25,6 +25,6 @@ import { ServiciosService } from "./servicios.service";
     ],
 })
 
-export class MusculoModule {
+export class ServiciosModule {
 
 }
