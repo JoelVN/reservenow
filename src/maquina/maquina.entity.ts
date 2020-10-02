@@ -1,4 +1,5 @@
-import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
+import { LocalEntity } from "src/local/local.entity";
+import {Column, Entity, Index, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 
 
 
@@ -25,7 +26,9 @@ export class MaquinaEntity{
     })
     segmento_cuerpo?: string
 
-    
+    @ManyToOne(type => LocalEntity, local => local.maquinas)
+    local: LocalEntity;
+   
 
     
 }

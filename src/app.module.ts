@@ -36,7 +36,7 @@ import { HorarioEntity } from './horario/horario.entity';
       host: 'localhost', //ip
       port: 3306, // puerto
       username: 'root', //usuario
-      password: 'Alojomoracf77', //password
+      password: '258456', //password
       database: 'reservenow',  //Base de datos
       entities: [ //Todas las entidades que se va a conectar
           UsuarioEntity,

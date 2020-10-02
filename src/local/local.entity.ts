@@ -1,5 +1,6 @@
 import { GimnasioEntity } from "src/gimnasio/gimnasio.entity";
 import { HorarioEntity } from "src/horario/horario.entity";
+import { MaquinaEntity } from "src/maquina/maquina.entity";
 import {Column, Entity, Index, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 
 
@@ -36,6 +37,8 @@ export class LocalEntity{
      
     @OneToMany(type => HorarioEntity, horario => horario.local) // note: we will create author property in the Photo class below
     horarios: HorarioEntity[];
+    @OneToMany(type => MaquinaEntity, maquina => maquina.local) // note: we will create author property in the Photo class below
+    maquinas: MaquinaEntity[];
     @ManyToOne(type => GimnasioEntity, gimnasio => gimnasio.locales)
     gimnasio: GimnasioEntity;
    
