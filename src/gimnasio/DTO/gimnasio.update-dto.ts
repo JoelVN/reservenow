@@ -12,7 +12,7 @@ export class GimnasioUpdateDTO {
     @IsString()
     @MinLength(1)
     @MaxLength(50)
-    nobmbre: string
+    nombre: string
 
 
 
