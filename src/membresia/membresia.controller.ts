@@ -4,7 +4,7 @@ import { MembresiaService } from "./membresia.service";
 @Controller('membresia-rn')
 export class MembresiaController {
     constructor(
-        private readonly _usuarioService: MembresiaService
+        private readonly _membresiaService: MembresiaService
     ) {
     }
 
