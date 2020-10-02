@@ -1,16 +1,23 @@
+<%- include('../compartido/estilos-generales/estilos-generales-component')%>
+
 <h1> A G E N D A R </h1>
 <%if(typeof parametrosConsulta != 'undefined') {%>
-    <p>MENSAJE: <%= parametrosConsulta.mensaje%></p>
+    <p class="h4">MENSAJE: <%= parametrosConsulta.mensaje%></p>
 <%}%>
 <h2> Presiona en consultar horarios, para observar  los horarios</h2>
 
 <form action="/horario/vista/agendar"
       method="GET">
-    <label for="busqueda">Busqueda:</label>
-    <input id="busqueda" type="text" name="busqueda">
-    <button type="submit"> CONSULTAR HORARIOS</button>
+    <div class="form-group">
+    <label for="busqueda" class="h4">Busqueda:</label>
+    <input id="busqueda" class="form-control" type="text" name="busqueda">
+        <div class="col-md-12 text-center mb-3">
+            <button type="submit" class="btn btn-secondary" > CONSULTAR HORARIOS</button>
+        </div>
+
+    </div>
 </form>
-<table>
+<table class="table table-dark">
     <!--table row-->
     <tr>
         <!--table header-->
@@ -25,14 +32,23 @@
             <td><%= objeto.hora_inicio %></td>
             <td><%= objeto.hora_final %></td>
             <td>
-                <a href="/horario/vista/editar/<%= objeto.id %>">
-                    <button>Editar Horario</button>
+
+                <a href="/horario/vista/editar/<%= objeto.idHorario %>">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="submit" class="btn btn-secondary">Editar Horario</button>
+
+                    </div>
+
                 </a>
 
-                <form action="/horario/eliminarDesdeVista/<%= objeto.id %>"
+                <form action="/horario/eliminarDesdeVista/<%= objeto.idHorario %>"
                       method="POST">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="submit" class="btn btn-secondary">Eliminar Horario</button>
 
-                    <button type="submit">Eliminar Horario</button>
+                    </div>
+
+
                 </form>
             </td>
         </tr>
@@ -40,13 +56,16 @@
 
 </table>
 <h2> Presiona en agendar cita para seleccionar un horario </h2>
+<div class="col-md-12 text-center mb-3">
+    <a href="/horario/vista/crear">
+        <button class="btn btn-secondary">AGENDAR CITA</button>
+    </a>
+    <a href="/logout">
+        <button class="btn btn-secondary">LOGOUT</button>
+    </a>
 
-<a href="/horario/vista/crear">
-    <button>AGENDAR CITA</button>
-</a>
-<a href="/logout">
-    <button>Logout</button>
-</a>
+</div>
+
 
 
 

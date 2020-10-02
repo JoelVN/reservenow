@@ -35,15 +35,15 @@ export class HorarioService {
 
     return this.repositorio.find(consulta) // promesa
   }
-  buscarUno(id: number) {
-    return this.repositorio.findOne(id) // promesa
+  buscarUno(idHorario: number) {
+    return this.repositorio.findOne(idHorario) // promesa
   }
 
   editarUno(horarioEditado: HorarioEntity) {
     return this.repositorio.save(horarioEditado);
   }
 
-  eliminarUno(id: number) {
-    return this.repositorio.delete(id);
+  eliminarUno(idHorario: number) {
+    return this.repositorio.delete(idHorario);
   }
 }

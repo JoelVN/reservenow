@@ -54,7 +54,7 @@ export class HorarioController {
     }
   }
 
-  @Get(':id')
+  @Get(':idHorario')
   async verUno(
     @Param() parametrosRuta
   ){
@@ -79,7 +79,7 @@ export class HorarioController {
     }
   }
 
-  @Put(':id')
+  @Put(':idHorario')
   async editarUno(
     @Param() parametrosRuta,
     @Body() parametrosCuerpo
@@ -106,7 +106,7 @@ export class HorarioController {
 
   }
 
-  @Delete(':id')
+  @Delete(':idHorario')
   async eliminarUno(
     @Param() parametrosRuta
   ){
@@ -170,16 +170,16 @@ export class HorarioController {
 
   }
 
-  @Get('vista/editar/:id') // Controlador
+  @Get('vista/editar/:idHorario') // Controlador
   async editarHorarioVista(
     @Query() parametrosConsulta,
     @Param() parametrosRuta,
     @Res() res
   ) {
-    const id = Number(parametrosRuta.id)
+    const idHorario = Number(parametrosRuta.idHorario)
     let horarioEncontrado;
     try {
-      horarioEncontrado = await this._horarioService.buscarUno(id);
+      horarioEncontrado = await this._horarioService.buscarUno(idHorario);
     } catch (error) {
       console.error('Error del servidor');
       return res.redirect('/horario/vista/inicio?mensaje=Error buscando horario');
@@ -236,14 +236,14 @@ export class HorarioController {
   }
 
 
-  @Post('editarDesdeVista/:id')
+  @Post('editarDesdeVista/:idHorario')
   async editarDesdeVista(
     @Param() parametrosRuta,
     @Body() parametrosCuerpo,
     @Res() res,
   ) {
     const agendaEditada = {
-      idHorario: Number(parametrosRuta.id),
+      idHorario: Number(parametrosRuta.idHorario),
       hora_inicio: parametrosCuerpo.hora_inicio,
       hora_final: parametrosCuerpo.hora_final,
       dia: parametrosCuerpo.dia,
@@ -259,14 +259,14 @@ export class HorarioController {
 
   }
 
-  @Post('eliminarDesdeVista/:id')
+  @Post('eliminarDesdeVista/:idHorario')
   async eliminarDesdeVista(
     @Param() parametrosRuta,
     @Res() res
   ){
     try {
-      const id = Number(parametrosRuta.id);
-      await this._horarioService.eliminarUno(id)
+      const idHorario = Number(parametrosRuta.idHorario);
+      await this._horarioService.eliminarUno(idHorario)
       return res.redirect('/horario/vista/agendar?mensaje= Agenda Eliminada')
     } catch (error) {
       console.log(error);

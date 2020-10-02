@@ -1,3 +1,7 @@
+
+<%- include('../compartido/estilos-generales/estilos-generales-component')%>
+
+
 <!-- horario/crear.agenda.ejs-->
 <% const existeHorario = typeof horario != 'undefined'%>
 
@@ -7,7 +11,7 @@
 
 
 
-<h1> <%= existeHorario ? 'Editar' : 'Crear'%> Horario</h1>
+<h1> <%= existeHorario ? 'EDITAR' : 'CREAR'%> HORARIO</h1>
 
 <% if(typeof error !== 'undefined') { %>
     <p>MENSAJE ERROR: <%= error %></p>
@@ -25,28 +29,32 @@
     <% dia = horario.dia %>
 
 <%}%>
-<h2> INGRESE LOS DATOS CORRESPONDIENTES</h2>
+<h2> Ingrese Los Datos Correspondientes</h2>
 
-<form action="<%= existeHorario ? '/horario/editarDesdeVista/' + horario.id : '/horario/crearDesdeVista' %>"
+<form action="<%= existeHorario ? '/horario/editarDesdeVista/' + horario.idHorario : '/horario/crearDesdeVista' %>"
       method="POST">
 
-    <label for="diaID">Dia:</label>
-    <input id="diaID" type="text" name="dia" value="<%= existeDia ? dia : '' %>">
+    <div class="form-group">
+    <label class="h4" for="diaID">Dia:</label>
+    <input id="diaID" class="form-control" type="text" name="dia" value="<%= existeDia ? dia : '' %>">
     <br>
-
-    <label for="hora_inicioID">Hora de Inicio:</label>
-    <input id="hora_inicioID" type="text" name="hora_inicio" value="<%= existeHoraInicio ? hora_inicio : '' %>">
+    </div>
+    <div class="form-group">
+    <label class="h4" for="hora_inicioID">Hora de Inicio:</label>
+    <input id="hora_inicioID"  class="form-control" type="text" name="hora_inicio" value="<%= existeHoraInicio ? hora_inicio : '' %>">
     <br>
-
-    <label for="hora_finalID">Hora de Finalizacion:</label>
-    <input id="hora_finalID" type="text" name="hora_final" value="<%= existeHoraFinal ? hora_final : '' %>">
+    </div>
+    <div class="form-group">
+    <label class="h4" for="hora_finalID">Hora de Finalizacion:</label>
+    <input id="hora_finalID" class="form-control" type="text" name="hora_final" value="<%= existeHoraFinal ? hora_final : '' %>">
     <br>
+    </div>
 
-    <button type="submit">AGENDAR</button>
-    <button type="reset">RESET</button>
+    <button type="submit" class="btn btn-secondary">AGENDAR</button>
+    <button type="reset" class="btn btn-secondary">RESET</button>
 
     <a href="/logout">
-        <button>LOGOUT</button>
+        <button class="btn btn-secondary">LOGOUT</button>
     </a>
 
 
