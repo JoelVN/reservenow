@@ -14,34 +14,48 @@ export class UsuarioEntity{
     })
 
     @Column({
-        name:'nombre',
+        name:'nombre_usuario',
         type: 'varchar',
-        length: '60',
-        nullable: true
+        nullable: false
     })
-    nombreUsuario?: string;
+    nombreUsuario: string;
 
     @Column({
-        name: 'apellido',
         type: 'varchar',
-        nullable: true,
-        length: '60'
+        nullable: false,
+        name: 'apellido_usuario',
     })
-    apellidoUsuario?: string
+    apellidoUsuario: string
 
     @Column({
-        name: 'cedula',
         type: 'varchar',
         nullable: false,
         unique: true,
-        length: '18'
+        name: 'cedula_usuario',
+
     })
-    cedula: string;
+    cedulaUsuario: string;
 
     @Column({
-        name: 'correo',
         type: 'varchar',
         nullable: false,
+        name: 'rol_usuario',
+        comment: 'Rol de usuario',
     })
-    correoUsuario: string
+    rolUsuario: string;
+
+    @Column({
+        type: 'varchar',
+        nullable: false,
+        name: 'email',
+        unique: true,
+    })
+    correo: string
+
+    @Column({
+        type: 'varchar',
+        nullable: false,
+        name: 'password',
+    })
+    password: string;
 }

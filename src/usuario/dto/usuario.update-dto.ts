@@ -8,7 +8,7 @@ import {
 
 
 
-export class UsuarioCreateDto {
+export class UsuarioUpdateDto {
     @IsNotEmpty()
     @IsNumberString()
     @MinLength(10)

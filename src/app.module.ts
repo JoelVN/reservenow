@@ -15,7 +15,7 @@ import {UsuarioEntity} from "./usuario/usuario.entity";
       port: 3306, // puerto
       username: 'root', //usuario
       password: 'root', //password
-      database: 'reservenow',  //Base de datos
+      database: 'reserveNow',  //Base de datos
       entities: [ //Todas las entidades que se va a conectar
           UsuarioEntity
       ],

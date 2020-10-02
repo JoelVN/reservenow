@@ -1,19 +1,23 @@
 import {
-    IsAlpha, IsEmail,
+    IsEmail,
     IsNotEmpty,
     IsNumberString,
-    IsOptional, IsString,
+    IsString,
     MaxLength, MinLength
 } from "class-validator";
-
-
-
 export class UsuarioCreateDto {
+
+    @IsNotEmpty()
+    @IsString()
+    @MinLength(5)
+    @MaxLength(20)
+    rolUsuario: string;
+
     @IsNotEmpty()
     @IsNumberString()
     @MinLength(10)
     @MaxLength(10)
-    cedula: string
+    cedulaUsuario: string
 
     @IsNotEmpty()
     @IsString()
@@ -26,7 +30,6 @@ export class UsuarioCreateDto {
     @MinLength(3)
     @MaxLength(20)
     apellidoUsuario: string
-
 
     @IsNotEmpty()
     @IsEmail()
