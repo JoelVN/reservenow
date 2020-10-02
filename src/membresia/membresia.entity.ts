@@ -1,4 +1,5 @@
-import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
+import { UsuarioEntity } from "src/usuario/usuario.entity";
+import {Column, Entity, Index, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 
 
 
@@ -31,6 +32,8 @@ export class MembresiaEntity{
        
     })
     estado: boolean;
+    @ManyToOne(type => UsuarioEntity, usuario => usuario.membresias)
+    usuario: UsuarioEntity;
 
     
 }

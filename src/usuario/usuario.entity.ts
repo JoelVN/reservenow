@@ -1,5 +1,6 @@
 import { HorarioEntity } from "src/horario/horario.entity";
-import {Column, Entity, Index, JoinTable, ManyToMany, PrimaryGeneratedColumn} from "typeorm";
+import { MembresiaEntity } from "src/membresia/membresia.entity";
+import {Column, Entity, Index, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 
 @Entity('usuario')
 export class UsuarioEntity{
@@ -62,4 +63,7 @@ export class UsuarioEntity{
     @ManyToMany(type => HorarioEntity, horario  => horario.usuariosEntity)
     @JoinTable()
     horariosEntity: HorarioEntity[];
+
+    @OneToMany(type => MembresiaEntity, membresia => membresia.usuario) // note: we will create author property in the Photo class below
+    membresias: MembresiaEntity[];
 }
