@@ -1,11 +1,5 @@
 import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
 
-@Index([
-    'nombre',
-    'apellido',
-    'cedula'
-])
-
 @Entity('usuario')
 export class UsuarioEntity{
     @PrimaryGeneratedColumn({
@@ -13,7 +7,11 @@ export class UsuarioEntity{
         unsigned: true,
         comment: 'Identificador'
     })
-    id: number;
+    idUsuario: number;
+
+    @Index({
+        unique: false
+    })
 
     @Column({
         name:'nombre',
@@ -21,7 +19,7 @@ export class UsuarioEntity{
         length: '60',
         nullable: true
     })
-    nombre?: string;
+    nombreUsuario?: string;
 
     @Column({
         name: 'apellido',
@@ -29,7 +27,7 @@ export class UsuarioEntity{
         nullable: true,
         length: '60'
     })
-    apellido?: string
+    apellidoUsuario?: string
 
     @Column({
         name: 'cedula',
@@ -45,5 +43,5 @@ export class UsuarioEntity{
         type: 'varchar',
         nullable: false,
     })
-    correo: string
+    correoUsuario: string
 }

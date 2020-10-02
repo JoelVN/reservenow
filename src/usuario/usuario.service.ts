@@ -5,7 +5,6 @@ import {FindManyOptions, Like, Repository} from "typeorm";
 
 @Injectable()
 export class UsuarioService {
-
     constructor(
         @InjectRepository(UsuarioEntity)
         private repositorio: Repository<UsuarioEntity>
@@ -33,9 +32,15 @@ export class UsuarioService {
 
         return this.repositorio.find(consulta) // promesa
     }
-    buscarUno(id: number) {
-        return this.repositorio.findOne(id) // promesa
-    }
+    buscarUno(
+        where: any = {}
+    ): Promise<UsuarioEntity>{
+        try {
+            return this.repositorio.findOne({ where: where });
+        }
+        catch{
+            return undefined;
+        }}
 
     editarUno(usuarioEditado: UsuarioEntity) {
         return this.repositorio.save(usuarioEditado);
