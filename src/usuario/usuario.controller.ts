@@ -1,5 +1,8 @@
 import {Body, Controller, Get, InternalServerErrorException, Post, Query, Res, Session} from "@nestjs/common";
 import {UsuarioService} from "./usuario.service";
+import {UsuarioEntity} from "./usuario.entity";
+import {UsuarioCreateDto} from "./dto/usuario.create-dto";
+import {validate, ValidationError} from "class-validator";
 
 @Controller('usuario')
 export class UsuarioController {
@@ -109,16 +112,60 @@ export class UsuarioController {
     }*/
 
 
+    @Get('registro')
+    rutaRegistro(
+        @Query('error') error: string,
+        @Res() res,
+    ) {
+        res.render(
+            'usuario/register',
+            {
+                datos: {
+                    error,
+                },
+            },
+        );
+    }
 
-
-    @Get('vista/principal')
-    async principal(
-    @Res() res,
-    @Query() parametrosConsulta
+    @Post('registerUsuarioVista')
+    async crearUnUsuario(
+        @Body() usuario: UsuarioEntity,
+        @Res() res,
     ){
-        let resultadoUsuario
+        const usuarioCreateDTO = new UsuarioCreateDto();
+        usuarioCreateDTO.nombreUsuario = usuario.nombreUsuario;
+        usuarioCreateDTO.apellidoUsuario = usuario.apellidoUsuario;
+        usuarioCreateDTO.cedulaUsuario = usuario.cedulaUsuario;
+        usuarioCreateDTO.correo= usuario.correo;
+        usuario.rolUsuario = "Cliente";
+        usuarioCreateDTO.rolUsuario = usuario.rolUsuario;
+        usuarioCreateDTO.password = usuario.password;
+
+        const errores: ValidationError[] = await validate(usuarioCreateDTO);
+        if(errores.length>0){
+            console.log('Error', errores);
+            const mensajeError = 'Error Datos incorrectos'
+            return res.redirect('/usuario/registro?error=' + mensajeError);
+        }else{
+            try {
+                await this._usuarioService
+                    .crearUno(
+                        usuario,
+                    );
+                res.redirect(
+                    '/usuario/login?mensaje=El usuario se creo correctamente',
+                );
+            } catch (error) {
+                const mensajeError = 'Error del servidor'
+                return res.redirect('/usuario/registro?error=' + mensajeError);
+            }
+        }
 
     }
+
+
+
+
 
 
 }
