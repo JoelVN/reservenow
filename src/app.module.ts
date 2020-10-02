@@ -17,14 +17,14 @@ import { HorarioEntity } from './horario/horario.entity';
       host: 'localhost', //ip
       port: 3306, // puerto
       username: 'root', //usuario
-      password: 'Alojomoracf77', //password
+      password: '258456', //password
       database: 'reservenow',  //Base de datos
       entities: [ //Todas las entidades que se va a conectar
           UsuarioEntity,
           HorarioEntity
       ],
       synchronize: true, //actualiza el esquema de la base de datos
-      dropSchema: false, //Elimina los datos y esquema de bases de datos
+      dropSchema: true, //Elimina los datos y esquema de bases de datos
     }),
   ],
   controllers: [AppController],

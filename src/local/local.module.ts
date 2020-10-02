@@ -24,6 +24,6 @@ import { LocalService } from "./local.service";
     ],
 })
 
-export class MembresiaModule {
+export class LocalModule {
 
 }
