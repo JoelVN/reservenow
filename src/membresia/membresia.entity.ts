@@ -19,14 +19,14 @@ export class MembresiaEntity{
 
     @Column({
         name:'inicia',
-        type: 'datetime',
+        type: 'date',
         nullable: false
     })
     inicia?: Date;
 
     @Column({
         name:'finaliza',
-        type: 'datetime',
+        type: 'date',
         nullable: false
     })
     finaliza?: Date

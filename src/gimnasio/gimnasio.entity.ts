@@ -17,7 +17,7 @@ export class GimnasioEntity{
 
     @Column({
         name:'nombre',
-        type: 'string',
+        type: 'varchar',
         nullable: false
     })
     nombre?: string;

@@ -21,7 +21,7 @@ export class HorarioService {
     const consulta: FindManyOptions<HorarioEntity> = {
       where: [
         {
-          id: Like(`%${textoDeConsulta}%`)
+          dia: Like(`%${textoDeConsulta}%`)
         },
         {
           hora_inicio: Like(`%${textoDeConsulta}%`)
@@ -29,6 +29,7 @@ export class HorarioService {
         {
           hora_final: Like(`%${textoDeConsulta}%`)
         }
+        
       ]
     }
 

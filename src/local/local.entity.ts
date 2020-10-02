@@ -4,7 +4,7 @@ import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
     'id',
     'direccion',
     'aforo',
-    'telefono',
+    'telefono_local',
 
 ])
 
@@ -19,21 +19,21 @@ export class LocalEntity{
 
     @Column({
         name:'direccion',
-        type: 'string',
+        type: 'varchar',
         nullable: false
     })
     direccion?: string;
 
     @Column({
         name:'aforo',
-        type: 'number',
+        type: 'int',
         nullable: false
     })
     aforo?: string
 
     @Column({
         name: 'telefono_local',
-        type: 'string',
+        type: 'varchar',
        
     })
     telefono_local: string;

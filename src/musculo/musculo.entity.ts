@@ -19,14 +19,14 @@ export class MusculoEntity{
 
     @Column({
         name:'nombre',
-        type: 'string',
+        type: 'varchar',
         nullable: false
     })
     nombre?: string;
 
     @Column({
         name:'segmento_cuerpo',
-        type: 'number',
+        type: 'int',
         nullable: false
     })
     segmento_cuerpo?: string

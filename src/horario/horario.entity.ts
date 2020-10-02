@@ -10,14 +10,14 @@ export class HorarioEntity{
   id: number;
 
   @Column({
-    type: 'time',
+    type: 'varchar',
     nullable: false,
     name: 'hora_inicio',
   })
   hora_inicio?: number;
 
   @Column({
-    type: 'time',
+    type: 'varchar',
     nullable: false,
     name: 'hora_final',
   })
@@ -25,7 +25,7 @@ export class HorarioEntity{
 
   @Column({
     name: 'dia',
-    type: 'date',
+    type: 'varchar',
     nullable: false,
 
   })

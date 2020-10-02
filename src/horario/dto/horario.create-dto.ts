@@ -6,23 +6,24 @@ import {
   IsNumberString,
   MaxLength,
   MinLength,
+  IsString
 } from 'class-validator';
 
 export class HorarioCreateDto {
   @IsNotEmpty()
-  @IsNumberString()
+  @IsString()
   @IsMilitaryTime()
   hora_inicio: string
 
   @IsNotEmpty()
-  @IsNumberString()
+  @IsString()
   @IsMilitaryTime()
   hora_final: string
 
   @IsNotEmpty()
   @MaxLength(10)
-  @MinLength(10)
-  @IsDate()
+  @MinLength(5)
+  @IsString()
   dia: string
 
 }
