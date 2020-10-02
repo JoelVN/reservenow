@@ -1,21 +1,15 @@
 import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
 
-@Index([
-    'id',
-    'nombre',
-    'segmento_cuerpo',
-    
 
-])
 
 @Entity('maquina')
 export class MaquinaEntity{
     @PrimaryGeneratedColumn({
-        name: 'id', //numero de cedula del usuario + el mes en el q estamos 
+        name: 'id_maquina', //numero de cedula del usuario + el mes en el q estamos 
         unsigned: true,
         comment: 'Identificador'
     })
-    id: number;
+    idMaquina: number;
 
     @Column({
         name:'nombre',

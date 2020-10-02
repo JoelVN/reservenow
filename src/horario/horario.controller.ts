@@ -243,7 +243,7 @@ export class HorarioController {
     @Res() res,
   ) {
     const agendaEditada = {
-      id: Number(parametrosRuta.id),
+      idHorario: Number(parametrosRuta.id),
       hora_inicio: parametrosCuerpo.hora_inicio,
       hora_final: parametrosCuerpo.hora_final,
       dia: parametrosCuerpo.dia,

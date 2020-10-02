@@ -1,21 +1,16 @@
-import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
+import { HorarioEntity } from "src/horario/horario.entity";
+import {Column, Entity, Index, ManyToMany, PrimaryGeneratedColumn} from "typeorm";
 
-@Index([
-    'id',
-    'nombre',
-    'segmento_cuerpo',
-    
 
-])
 
 @Entity('musculo')
 export class MusculoEntity{
     @PrimaryGeneratedColumn({
-        name: 'id', //numero de cedula del usuario + el mes en el q estamos 
+        name: 'id_musculo', //numero de cedula del usuario + el mes en el q estamos 
         unsigned: true,
         comment: 'Identificador'
     })
-    id: number;
+    idMusculo: number;
 
     @Column({
         name:'nombre',
@@ -30,7 +25,7 @@ export class MusculoEntity{
         nullable: false
     })
     segmento_cuerpo?: string
-
+    
     
 
     

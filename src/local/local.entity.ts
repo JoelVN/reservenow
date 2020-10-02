@@ -1,21 +1,15 @@
 import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
 
-@Index([
-    'id',
-    'direccion',
-    'aforo',
-    'telefono_local',
 
-])
 
 @Entity('local')
 export class LocalEntity{
     @PrimaryGeneratedColumn({
-        name: 'id', //numero de cedula del usuario + el mes en el q estamos 
+        name: 'id_local', //numero de cedula del usuario + el mes en el q estamos 
         unsigned: true,
         comment: 'Identificador'
     })
-    id: number;
+    idLocal: number;
 
     @Column({
         name:'direccion',

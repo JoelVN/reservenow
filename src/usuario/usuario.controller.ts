@@ -59,9 +59,10 @@ export class UsuarioController {
                         roles : ['Deportista'],
                     };
                     let mensaje = "Bienvenido " + usuario.nombreUsuario + " " + usuario.apellidoUsuario;
-                    return response.render('principal/principal',{
+                    return response.render('horario/agendar',{
                         datos: {
                             mensaje,
+                            session
                         }
                     })
                 }

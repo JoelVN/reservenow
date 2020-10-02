@@ -1,9 +1,10 @@
-import {Column, Entity, Index, PrimaryGeneratedColumn} from "typeorm";
+import { HorarioEntity } from "src/horario/horario.entity";
+import {Column, Entity, Index, JoinTable, ManyToMany, PrimaryGeneratedColumn} from "typeorm";
 
 @Entity('usuario')
 export class UsuarioEntity{
     @PrimaryGeneratedColumn({
-        name: 'id',
+        name: 'id_usuario',
         unsigned: true,
         comment: 'Identificador'
     })
@@ -58,4 +59,7 @@ export class UsuarioEntity{
         name: 'password',
     })
     password: string;
+    @ManyToMany(type => HorarioEntity, horario  => horario.usuariosEntity)
+    @JoinTable()
+    horariosEntity: HorarioEntity[];
 }
