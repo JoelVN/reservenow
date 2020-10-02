@@ -8,15 +8,12 @@ import {
 
 
 
-export class MembresiaUpdateDTO {
-    @IsDate()
-    inicia: Date
+export class GimnasioUpdateDTO {
+    @IsString()
+    @MinLength(1)
+    @MaxLength(50)
+    nobmbre: string
 
-    @IsDate()
-    finaliza: Date
-
-    @IsBoolean()
-    createDate: Date
 
 
 }
