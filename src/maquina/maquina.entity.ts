@@ -1,6 +1,7 @@
 import { LocalEntity } from "src/local/local.entity";
+import { MusculoEntity } from "src/musculo/musculo.entity";
 import { ServiciosEntity } from "src/servicios/servicios.entity";
-import {Column, Entity, Index, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, Index, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 
 
 
@@ -26,11 +27,14 @@ export class MaquinaEntity{
         nullable: false
     })
     segmento_cuerpo?: string
-
+    @ManyToMany(type => MusculoEntity, musculo  => musculo.maquinas)
+    @JoinTable()
+    musculos: MusculoEntity[];
     @ManyToOne(type => LocalEntity, local => local.maquinas)
     local: LocalEntity;
     @OneToMany(type => ServiciosEntity, servicio => servicio.maquina) // note: we will create author property in the Photo class below
     servicios: ServiciosEntity[];
+    
    
 
     
