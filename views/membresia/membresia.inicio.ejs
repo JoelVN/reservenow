@@ -1,0 +1,67 @@
+<%- include('../compartido/estilos-generales/estilos-generales-component')%>
+
+<h1> M E M B R E S I A S </h1>
+<%if(typeof parametrosConsulta != 'undefined') {%>
+    <p class="h4">MENSAJE: <%= parametrosConsulta.mensaje%></p>
+<%}%>
+<h2> Presiona en consultar membresias, para observar  las membresias</h2>
+
+<form action="/membresia/vista/membresia"
+      method="GET">
+    <div class="form-group">
+        <label for="busqueda" class="h4">Busqueda:</label>
+        <input id="busqueda" class="form-control" type="text" name="busqueda">
+        <div class="col-md-12 text-center mb-3">
+            <button type="submit" class="btn btn-secondary" > CONSULTAR MEMBRESIAS</button>
+        </div>
+
+    </div>
+</form>
+<table class="table table-dark">
+    <!--table row-->
+    <tr>
+        <!--table header-->
+        <th>Estado</th>
+        <th>Fecha de Inicio</th>
+        <th>Fecha de finalizacion</th>
+        <th>Acciones</th>
+    </tr>
+    <% arregloMembresias.forEach( (objeto)=>{ %>
+        <tr>
+            <td><%= objeto.estado %></td>
+            <td><%= objeto.inicia %></td>
+            <td><%= objeto.finaliza%></td>
+            <td>
+
+                <a href="/horario/vista/editar/<%= objeto.idMembresia %>">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="submit" class="btn btn-secondary">Editar Membresia</button>
+
+                    </div>
+
+                </a>
+
+                <form action="/horario/eliminarDesdeVista/<%= objeto.idMembresia %>"
+                      method="POST">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="submit" class="btn btn-secondary">Eliminar Membresia</button>
+
+                    </div>
+
+
+                </form>
+            </td>
+        </tr>
+    <% } ) %>
+
+</table>
+<h2> Presiona en comprar membresia para comprar!! </h2>
+<div class="col-md-12 text-center mb-3">
+    <a href="/membresia/vista/crear">
+        <button class="btn btn-secondary">COMPRAR MEMBRESIA</button>
+    </a>
+    <a href="/logout">
+        <button class="btn btn-secondary">LOGOUT</button>
+    </a>
+
+</div>

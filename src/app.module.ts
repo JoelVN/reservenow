@@ -30,16 +30,13 @@ import { ServiciosModule } from './servicios/servicios.module';
       HorarioModule, 
       ServiciosModule ,   
 
-
-      
-
       TypeOrmModule.forRoot({
       name: 'default', //nombre de la conexion
       type: 'mysql',  // mysql
       host: 'localhost', //ip
       port: 3306, // puerto
       username: 'root', //usuario
-      password: '258456', //password
+      password: 'root', //password
       database: 'reservenow',  //Base de datos
       entities: [ //Todas las entidades que se va a conectar
           UsuarioEntity,

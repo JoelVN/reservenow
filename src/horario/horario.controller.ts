@@ -185,7 +185,7 @@ export class HorarioController {
       horarioEncontrado = await this._horarioService.buscarUno(idHorario);
     } catch (error) {
       console.error('Error del servidor');
-      return res.redirect('/horario/vista/inicio?mensaje=Error buscando horario');
+      return res.redirect('/horario/vista/agendar?mensaje=Error buscando horario');
     }
     if (horarioEncontrado) {
       return res.render(
@@ -196,7 +196,7 @@ export class HorarioController {
         }
       )
     } else {
-      return res.redirect('/horario/vista/inicio?mensaje= horario no encontrado');
+      return res.redirect('/horario/vista/agendar?mensaje= horario no encontrado');
     }
 
   }

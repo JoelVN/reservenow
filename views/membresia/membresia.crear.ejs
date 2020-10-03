@@ -1,0 +1,60 @@
+<%- include('../compartido/estilos-generales/estilos-generales-component')%>
+
+
+<!-- membresia/membresia.crear.ejs-->
+<% const existeMembresia = typeof membresia != 'undefined'%>
+
+<% let existeInicia = typeof inicia !== 'undefined' %>
+<% let existeFinaliza = typeof finaliza !== 'undefined' %>
+<% let existeEstado= typeof estado !== 'undefined' %>
+
+
+
+<h1> <%= existeMembresia ? 'EDITAR' : 'CREAR'%> MEMBRESIA</h1>
+
+<% if(typeof error !== 'undefined') { %>
+    <p>MENSAJE ERROR: <%= error %></p>
+<% } %>
+
+<!-- Setear los datos para editar-->
+<%if(existeMembresia){%>
+
+    <% existeInicia = true %>
+    <% existeFinaliza = true %>
+    <% existeEstado = true %>
+
+    <% inicia = horario.inicia %>
+    <% finaliza = horario.finaliza %>
+    <% estado = horario.estado %>
+
+<%}%>
+<h2> Ingrese Los Datos Correspondientes</h2>
+
+<form action="<%= existeMembresia ? '/membresia/editarDesdeVista/' + horario.idMembresia : '/membresia/crearDesdeVista' %>"
+      method="POST">
+
+    <div class="form-group">
+        <label class="h4" for="estadoID">Estado:</label>
+        <input id="estadoID" class="form-control" type="text" name="estado" value="<%= existeEstado ? estado : '' %>">
+        <br>
+    </div>
+    <div class="form-group">
+        <label class="h4" for="iniciaID">Fecha de Inicio:</label>
+        <input id="iniciaID"  class="form-control" type="text" name="inicia" value="<%= existeInicia ? inicia : '' %>">
+        <br>
+    </div>
+    <div class="form-group">
+        <label class="h4" for="finalizaID">Fecha de Finalizacion:</label>
+        <input id="finalizaID" class="form-control" type="text" name="finaliza" value="<%= existeFinaliza ? finaliza : '' %>">
+        <br>
+    </div>
+
+    <button type="submit" class="btn btn-secondary"> COMPRAR MEMBRESIA</button>
+    <button type="reset" class="btn btn-secondary">RESET</button>
+
+    <a href="/logout">
+        <button class="btn btn-secondary">LOGOUT</button>
+    </a>
+
+
+</form>

@@ -20,7 +20,7 @@ export class MembresiaService {
         const consulta: FindManyOptions<MembresiaEntity> = {
             where: [
                 {
-                    id: Like(`%${textoDeConsulta}%`)
+                    idMembresia: Like(`%${textoDeConsulta}%`)
                 },
                 {
                     inicia: Like(`%${textoDeConsulta}%`)

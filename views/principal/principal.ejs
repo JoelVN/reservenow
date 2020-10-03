@@ -1,5 +1,16 @@
+
+<%- include('../compartido/estilos-generales/estilos-generales-component')%>
 <% if(datos.mensaje){ %>
     <div class="alert alert-primary" role="alert">
         <%= datos.mensaje %>
     </div>
 <% } %>
+
+<div class="col-md-12 text-center ">
+    <button type="submit" class="btn btn-secondary">Agendar</button>
+    <button type="submit" class="btn btn-secondary">Membresia</button>
+
+    <a href="/usuario/logout">
+        <button type="submit" class="btn btn-secondary">Logout</button>
+    </a>
+</div>

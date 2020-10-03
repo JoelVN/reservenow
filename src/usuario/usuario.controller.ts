@@ -47,7 +47,6 @@ export class UsuarioController {
             try{
                 usuario = await this._usuarioService.buscarUno(consultaServicio)
             }catch(e){
-                console.log('nopeBuscarUno')
                 throw new InternalServerErrorException('Usuario no encontrado')
             }
             if(usuario){
@@ -68,6 +67,18 @@ export class UsuarioController {
                 }
             }
         }
+    }
+
+    @Get('logout')
+    logout(
+        @Session() session,
+        @Res() res,
+    ) {
+        session.usuario = undefined;
+        res.render('usuario/login',          {
+            datos: {
+            },
+        },);
     }
 
 
@@ -94,24 +105,6 @@ export class UsuarioController {
             throw new InternalServerErrorException('Usuario no encontrado')
         }
     }
-
-    /*@Post('login')
-    loginPost(
-        @Body() parametrosConsulta,
-        @Res() response,
-        @Session() session
-    ){
-        const usuario = parametrosConsulta.usuario;
-        const password = parametrosConsulta.password;
-        if(usuario == 'admin@reservenow.com' && password =='12345678'){
-            session.usuario = usuario
-            session.roles = ['Administrador']
-            return response.redirect('/usuario/vista/principal')
-        }else{
-            return response.redirect('login')
-        }
-    }*/
-
 
     @Get('registro')
     rutaRegistro(
@@ -163,6 +156,8 @@ export class UsuarioController {
         }
 
     }
+
+
 
 
 
