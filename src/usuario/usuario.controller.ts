@@ -47,7 +47,6 @@ export class UsuarioController {
             try{
                 usuario = await this._usuarioService.buscarUno(consultaServicio)
             }catch(e){
-                console.log('nopeBuscarUno')
                 throw new InternalServerErrorException('Usuario no encontrado')
             }
             if(usuario){
@@ -68,6 +67,18 @@ export class UsuarioController {
                 }
             }
         }
+    }
+
+    @Get('logout')
+    logout(
+        @Session() session,
+        @Res() res,
+    ) {
+        session.usuario = undefined;
+        res.render('usuario/login',          {
+            datos: {
+            },
+        },);
     }
 
 
