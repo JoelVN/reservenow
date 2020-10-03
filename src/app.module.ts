@@ -36,7 +36,7 @@ import { ServiciosModule } from './servicios/servicios.module';
       host: 'localhost', //ip
       port: 3306, // puerto
       username: 'root', //usuario
-      password: 'Alojomoracf77', //password
+      password: 'root', //password
       database: 'reservenow',  //Base de datos
       entities: [ //Todas las entidades que se va a conectar
           UsuarioEntity,
