@@ -32,6 +32,7 @@ export class MembresiaEntity{
         type: 'boolean',
        
     })
+
     estado: boolean;
     @ManyToOne(type => UsuarioEntity, usuario => usuario.membresias)
     usuario: UsuarioEntity;

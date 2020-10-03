@@ -10,13 +10,15 @@ import {
 
 export class MembresiaCreateDTO {
     @IsDate()
+    @IsNotEmpty()
     inicia: Date
 
     @IsDate()
+    @IsNotEmpty()
     finaliza: Date
 
-    @IsBoolean()
-    createDate: Date
+    @IsNotEmpty()
+    estado: Date
 
 
 }
