@@ -17,6 +17,18 @@ export class UsuarioController {
         return response.render('usuario/login')
     }
 
+    @Get('atras')
+    atras(
+      @Res() response
+    ){
+        return response.render('principal/principal',{
+            datos: {
+                Session,
+            }
+        })
+    }
+
+
     @Post('login')
     async loginPost(
         @Body() parametrosConsulta,
