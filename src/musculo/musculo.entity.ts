@@ -20,7 +20,7 @@ import { MaquinaEntity } from "src/maquina/maquina.entity";
         })
         nombre?: string;
 
-        @Column({
+        @Column({   
             name:'segmento_cuerpo',
             type: 'int',
             nullable: false

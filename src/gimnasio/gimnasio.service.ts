@@ -25,6 +25,7 @@ export class GimnasioService {
                 {
                     nombre: Like(`%${textoDeConsulta}%`)
                 }
+                
             ]
         }
 

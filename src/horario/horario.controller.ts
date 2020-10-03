@@ -6,7 +6,7 @@ import {
   InternalServerErrorException, NotFoundException,
   Param,
   Post,
-  Put, Query, Res,
+  Put, Query, Res,Session
 } from '@nestjs/common';
 import { HorarioService } from './horario.service';
 import { HorarioCreateDto } from './dto/horario.create-dto';
@@ -134,9 +134,12 @@ export class HorarioController {
   @Get('vista/agendar')
   async agendar(
     @Res() res,
-    @Query() parametrosConsulta
+    @Query() parametrosConsulta,
+    @Session() session
   ) {
     let resultadoEncontrado
+    let idUsuario = session.usuario.userId;
+    console.log(idUsuario);
     try {
       resultadoEncontrado = await this._horarioService.buscarTodos(parametrosConsulta.busqueda);
     } catch (error) {
