@@ -95,24 +95,6 @@ export class UsuarioController {
         }
     }
 
-    /*@Post('login')
-    loginPost(
-        @Body() parametrosConsulta,
-        @Res() response,
-        @Session() session
-    ){
-        const usuario = parametrosConsulta.usuario;
-        const password = parametrosConsulta.password;
-        if(usuario == 'admin@reservenow.com' && password =='12345678'){
-            session.usuario = usuario
-            session.roles = ['Administrador']
-            return response.redirect('/usuario/vista/principal')
-        }else{
-            return response.redirect('login')
-        }
-    }*/
-
-
     @Get('registro')
     rutaRegistro(
         @Query('error') error: string,
