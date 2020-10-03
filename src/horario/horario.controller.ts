@@ -139,9 +139,15 @@ export class HorarioController {
   ) {
     let resultadoEncontrado
     let idUsuario = session.usuario.userId;
+    console.log('valeeeeeeeeee');
     console.log(idUsuario);
     try {
+      //////////////////////////////////////////
+      
+      
       resultadoEncontrado = await this._horarioService.buscarTodos(parametrosConsulta.busqueda);
+    
+    
     } catch (error) {
       throw new InternalServerErrorException('Error encontrando Horarios')
     }
@@ -277,5 +283,6 @@ export class HorarioController {
 
     }
   }
+
 
 }

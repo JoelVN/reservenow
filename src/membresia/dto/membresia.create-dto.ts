@@ -9,14 +9,14 @@ import {
 
 
 export class MembresiaCreateDTO {
-    @IsDate()
+    @IsString()
     @IsNotEmpty()
     inicia: Date
 
-    @IsDate()
+    @IsString()
     @IsNotEmpty()
     finaliza: Date
-
+    @IsString()
     @IsNotEmpty()
     estado: Date
 

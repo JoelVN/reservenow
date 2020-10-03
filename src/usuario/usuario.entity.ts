@@ -64,6 +64,6 @@ export class UsuarioEntity{
     @JoinTable()
     horariosEntity: HorarioEntity[];
 
-    @OneToMany(type => MembresiaEntity, membresia => membresia.usuario) // note: we will create author property in the Photo class below
-    membresias: MembresiaEntity[];
+    //@OneToMany(type => MembresiaEntity, membresia => membresia.usuario) // note: we will create author property in the Photo class below
+    //membresias: MembresiaEntity[];
 }

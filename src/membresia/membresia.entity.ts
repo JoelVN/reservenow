@@ -15,28 +15,27 @@ export class MembresiaEntity{
 
     @Column({
         name:'inicia',
-        type: 'date',
+        type: 'varchar',
         nullable: false
     })
-    inicia?: Date;
+    inicia?: string;
 
     @Column({
         name:'finaliza',
-        type: 'date',
+        type: 'varchar',
         nullable: false
     })
-    finaliza?: Date
+    finaliza?: string
 
     @Column({
         name: 'estado',
-        type: 'boolean',
+        type: 'varchar',
        
     })
-
-    estado: boolean;
-    @ManyToOne(type => UsuarioEntity, usuario => usuario.membresias)
-    usuario: UsuarioEntity;
-    @ManyToOne(type => GimnasioEntity, gimnasio => gimnasio.membresias)
-    gimnasio: GimnasioEntity;
+    estado: string;
+    //@ManyToOne(type => UsuarioEntity, usuario => usuario.membresias)
+  //  usuario: UsuarioEntity;
+   // @ManyToOne(type => GimnasioEntity, gimnasio => gimnasio.membresias)
+//gimnasio: GimnasioEntity;
     
 }

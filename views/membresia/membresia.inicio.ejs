@@ -33,7 +33,7 @@
             <td><%= objeto.finaliza%></td>
             <td>
 
-                <a href="/horario/vista/editar/<%= objeto.idMembresia %>">
+                <a href="/membresia/vista/editar/<%= objeto.idMembresia %>">
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button type="submit" class="btn btn-secondary">Editar Membresia</button>
 
@@ -41,7 +41,7 @@
 
                 </a>
 
-                <form action="/horario/eliminarDesdeVista/<%= objeto.idMembresia %>"
+                <form action="/membresia/eliminarDesdeVista/<%= objeto.idMembresia %>"
                       method="POST">
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button type="submit" class="btn btn-secondary">Eliminar Membresia</button>

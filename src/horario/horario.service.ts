@@ -28,7 +28,9 @@ export class HorarioService {
         },
         {
           hora_final: Like(`%${textoDeConsulta}%`)
-        }
+        },
+
+
         
       ]
     }
